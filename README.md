@@ -1,2 +1,3 @@
-# hw3
- tcss 545   group1
+# JavaFX Project
+##  team: 
+group1
