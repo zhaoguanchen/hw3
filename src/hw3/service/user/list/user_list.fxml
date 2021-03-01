@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hw3.service.user.list.UserListController">
+    <children>
+        <TableView fx:id="tableView" editable="true" layoutX="7.0" layoutY="72.0" prefHeight="200.0" prefWidth="530.0">
+            <columns>
+                <TableColumn fx:id="userId" prefWidth="75.0" text="userId" />
+                <TableColumn fx:id="account" prefWidth="75.0" text="account" />
+                <TableColumn fx:id="name" prefWidth="75.0" text="name" />
+                <TableColumn fx:id="email" prefWidth="75.0" text="email" />
+                <TableColumn fx:id="phone" prefWidth="75.0" text="phone" />
+                <TableColumn fx:id="lab_training" prefWidth="75.0" text="lab_training" />
+                <TableColumn fx:id="PI_name" prefWidth="75.0" text="PI_name" />
+            </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#delete" text="Delete" />
+                  <MenuItem mnemonicParsing="false" onAction="#edit" text="Edit" />
+
+
+
+              </items>
+            </ContextMenu>
+         </contextMenu>
+        </TableView>
+    </children>
+</Pane>

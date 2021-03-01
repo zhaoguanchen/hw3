@@ -95,10 +95,10 @@ public class LoginController implements Initializable {
 
     void loadMain() {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("../index/index.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("../user/list/user_list.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);
             // TODO: 2021/2/27  name
-            stage.setTitle("Index");
+            stage.setTitle("user");
             stage.setScene(new Scene(parent));
             stage.show();
         } catch (IOException ex) {

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
@@ -11,8 +12,8 @@
       <Label layoutX="104.0" layoutY="78.0" text="Account" />
       <Label layoutX="104.0" layoutY="143.0" text="password" />
       <TextField id="account" fx:id="account" layoutX="183.0" layoutY="73.0" promptText="please input your accout" />
-      <TextField id="password" fx:id="password" layoutX="183.0" layoutY="138.0" promptText="please input your password" />
       <Label layoutX="81.0" layoutY="14.0" text="welcome Group1, this is login service" />
       <Button layoutX="321.0" layoutY="234.0" mnemonicParsing="false" onAction="#cancel" text="cancel" />
+      <PasswordField fx:id="password" layoutX="183.0" layoutY="138.0" promptText="please input your password" />
    </children>
 </Pane>

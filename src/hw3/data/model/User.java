@@ -1,20 +1,55 @@
 package hw3.data.model;
 
- /**
-  * @Description: User Entity
-  * @Author: Guanchen Zhao
-  * @Date: 2021/2/27  
-  */
+/**
+ * @Description: User Entity
+ * Users(user_id, user_name, lab, PI_name, email, phone, crypt_passwd_hash, lab_training)
+ * @Author: Guanchen Zhao
+ * @Date: 2021/2/27
+ */
 public class User {
-    String account;
-    String password;
-    String name;
-    
-    public User(String account, String password, String name) {
-        this.account = account;
-        this.password = password;
-        this.name = name;
-      
+    private Integer userId;
+
+    /**
+     * account to login
+     */
+    private String account;
+
+    /**
+     * name
+     */
+    private String name;
+
+    /**
+     * crypt_passwd_hash
+     */
+    private String password;
+
+    /**
+     * lab name
+     */
+    private String PI_name;
+
+    /**
+     * email address
+     */
+    private String email;
+
+    /**
+     * mobile phone
+     */
+    private String phone;
+
+    /**
+     * is trained? Y or N
+     */
+    private String lab_training;
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getAccount() {
@@ -25,14 +60,6 @@ public class User {
         this.account = account;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getName() {
         return name;
     }
@@ -41,12 +68,57 @@ public class User {
         this.name = name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPI_name() {
+        return PI_name;
+    }
+
+    public void setPI_name(String PI_name) {
+        this.PI_name = PI_name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getLab_training() {
+        return lab_training;
+    }
+
+    public void setLab_training(String lab_training) {
+        this.lab_training = lab_training;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "account='" + account + '\'' +
-                ", password='" + password + '\'' +
+                "userId=" + userId +
+                ", account='" + account + '\'' +
                 ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", PI_name='" + PI_name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", lab_training='" + lab_training + '\'' +
                 '}';
     }
 }

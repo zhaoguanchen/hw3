@@ -74,6 +74,7 @@ public final class DatabaseHandler {
 
     public ResultSet execQuery(String query) {
         ResultSet result;
+        System.out.println("execQuery:dataHandler" + query);
         try {
             stmt = conn.createStatement();
             result = stmt.executeQuery(query);
