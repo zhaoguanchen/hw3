@@ -6,7 +6,6 @@ import hw3.database.DatabaseHandler;
 import hw3.service.user.add.UserAddController;
 import hw3.util.AlertMaker;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,9 +18,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -61,15 +60,17 @@ public class UserListController implements Initializable {
     private TableColumn<User, String> PI_name;
 
 
-    @FXML
-    private Pane pane;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initColumn();
         loadData();
     }
 
+    /**
+     * @Author: Guanchen Zhao
+     * @Description: initialize table column
+     * @Date: 3:04 下午 2021/3/2
+     **/
     private void initColumn() {
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         userId.setCellValueFactory(new PropertyValueFactory<>("userId"));
@@ -84,7 +85,11 @@ public class UserListController implements Initializable {
         return (Stage) tableView.getScene().getWindow();
     }
 
-
+    /**
+     * @Author: Guanchen Zhao
+     * @Description: load table data
+     * @Date: 3:04 下午 2021/3/2
+     **/
     private void loadData() {
         list.clear();
         DatabaseHandler handler = DatabaseHandler.getInstance();
@@ -120,6 +125,11 @@ public class UserListController implements Initializable {
         }
     }
 
+    /**
+     * @Author: Guanchen Zhao
+     * @Description: deal delete process
+     * @Date: 3:05 下午 2021/3/2
+     **/
     @FXML
     private void delete(ActionEvent event) {
         //Fetch the selected row
@@ -152,40 +162,71 @@ public class UserListController implements Initializable {
     }
 
     @FXML
-    private void edit(ActionEvent event) {
-        //Fetch the selected row
-        User selectedForEdit = tableView.getSelectionModel().getSelectedItem();
-        if (selectedForEdit == null) {
-            AlertMaker.showErrorMessage("No member selected", "Please select a member for edit.");
-            return;
-        }
+    private void add(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/library/assistant/ui/addmember/member_add.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../add/user_add.fxml"));
             Parent parent = loader.load();
-
-            UserAddController controller = (UserAddController) loader.getController();
-//            controller.infalteUI(selectedForEdit);
-
             Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle("Edit Member");
+            stage.setTitle("add User");
             stage.setScene(new Scene(parent));
             stage.show();
-//            LibraryAssistantUtil.setStageIcon(stage);
-
             stage.setOnHiding((e) -> {
                 refresh(new ActionEvent());
             });
 
         } catch (IOException ex) {
-//            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error("", ex);
+        }
+    }
+
+    @FXML
+    private void edit(ActionEvent event) {
+        //Fetch the selected row
+        User selectedForEdit = tableView.getSelectionModel().getSelectedItem();
+        if (selectedForEdit == null) {
+            AlertMaker.showErrorMessage("No user selected", "Please select a user for edit.");
+            return;
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../add/user_add.fxml"));
+            Parent parent = loader.load();
+            UserAddController controller = loader.getController();
+            controller.infalteUI(selectedForEdit);
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("Edit User");
+            stage.setScene(new Scene(parent));
+            stage.show();
+            stage.setOnHiding((e) -> {
+                refresh(new ActionEvent());
+            });
+
+        } catch (IOException ex) {
+            logger.error("", ex);
         }
     }
 
 
-    @FXML
-    private void closeStage(ActionEvent event) {
+    private void closeStage() {
         getStage().close();
     }
 
+
+    @FXML
+    private void returnToIndex(ActionEvent event) {
+        closeStage();
+        loadIndex();
+    }
+
+    void loadIndex() {
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("../../index/index.fxml"));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle("index");
+            stage.setScene(new Scene(parent));
+            stage.show();
+        } catch (IOException ex) {
+            logger.log(Level.ERROR, "{}", ex);
+        }
+    }
 
 }
