@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="hw3.service.login.LoginController" xmlns="http://javafx.com/javafx/15.0.1">
-  <tabs>
-    <Tab text="User">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
-    </Tab>
-    <Tab text="Entity">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="153.0" layoutY="107.0" text="this is the main page" />
-               </children></AnchorPane>
-      </content>
-    </Tab>
-  </tabs>
-</TabPane>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hw3.service.index.IndexController">
+   <children>
+      <Button fx:id="inventory" layoutX="82.0" layoutY="187.0" mnemonicParsing="false" onAction="#toInventory" prefHeight="47.0" prefWidth="105.0" text="Inventory" />
+      <Button fx:id="exit" layoutX="436.0" layoutY="320.0" mnemonicParsing="false" onAction="#exit" prefHeight="38.0" prefWidth="70.0" text="log out" />
+      <TextArea layoutX="82.0" layoutY="41.0" prefHeight="119.0" prefWidth="436.0" text="Welcome to the lab resource database system." />
+      <Button fx:id="item" layoutX="242.0" layoutY="187.0" mnemonicParsing="false" onAction="#toItem" prefHeight="47.0" prefWidth="117.0" text="Item" />
+      <Button fx:id="user" layoutX="413.0" layoutY="187.0" mnemonicParsing="false" onAction="#toUser" prefHeight="47.0" prefWidth="117.0" text="User" />
+   </children>
+</Pane>

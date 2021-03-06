@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
 <AnchorPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hw3.service.inventory.InventoryController">
    <children>
       <TableView fx:id="inventoryTableView" editable="true" prefHeight="356.0" prefWidth="580.0" AnchorPane.bottomAnchor="104.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
@@ -22,6 +28,8 @@
       <HBox prefHeight="0.0" prefWidth="450.0" spacing="20.0" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="returnToIndex" minWidth="120.0" mnemonicParsing="false" onAction="#returnToIndex" prefWidth="150.0" text="Return" textAlignment="CENTER" />
+            <Button disable="true" minWidth="120.0" mnemonicParsing="false" prefWidth="150.0" textAlignment="CENTER" visible="false" />
             <Button minWidth="120.0" mnemonicParsing="false" onAction="#listAll" prefWidth="150.0" text="List All" textAlignment="CENTER" />
             <Button layoutX="65.0" layoutY="10.0" minWidth="120.0" mnemonicParsing="false" onAction="#deleteSelected" prefWidth="150.0" text="Delete" />
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />

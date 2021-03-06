@@ -48,7 +48,7 @@ public class LoginController implements Initializable {
     @FXML
     private void login(ActionEvent event) {
 
-        System.out.println("acc" + account.getText());
+        System.out.println("account:" + account.getText());
         String accountStr = StringUtils.trimToEmpty(account.getText());
         String passwordStr = DigestUtils.shaHex(password.getText());
 

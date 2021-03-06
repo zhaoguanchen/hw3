@@ -12,12 +12,12 @@
       <Button id="login" layoutX="204.0" layoutY="277.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="61.0" text="login" />
       <Label contentDisplay="CENTER" layoutX="173.0" layoutY="165.0" prefHeight="17.0" prefWidth="69.0" text="ACCOUNT" textAlignment="CENTER" />
       <Label layoutX="169.0" layoutY="205.0" text="PASSWORD" />
-      <TextField id="account" fx:id="account" alignment="CENTER" layoutX="263.0" layoutY="200.0" promptText="please input your account" />
+      <TextField id="account" fx:id="account" layoutX="265.0" layoutY="160.0" promptText="please input your account" />
       <Label layoutX="76.0" layoutY="57.0" text="Welcome to the lab resource database system, please log in.">
          <font>
             <Font name="System Font" size="18.0" />
          </font></Label>
       <Button layoutX="324.0" layoutY="277.0" mnemonicParsing="false" onAction="#cancel" prefHeight="27.0" prefWidth="61.0" text="cancel" />
-      <PasswordField fx:id="password" layoutX="263.0" layoutY="160.0" promptText="please input your password" />
+      <PasswordField fx:id="password" layoutX="265.0" layoutY="200.0" promptText="please input your password" />
    </children>
 </Pane>

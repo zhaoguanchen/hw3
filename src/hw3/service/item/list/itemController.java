@@ -23,6 +23,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
@@ -104,7 +105,7 @@ public class itemController implements Initializable {
             alert.showAndWait();
         }
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("service/add_item/item_add.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("../src/hw3/service/item/add_item/item_add.fxml")));
             Scene scene = new Scene(root);
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("edit Item");
@@ -125,7 +126,7 @@ public class itemController implements Initializable {
     @FXML
     public void add() {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("service/add_item/item_add.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("../src/hw3/service/item/add_item/item_add.fxml")));
             Scene scene = new Scene(root);
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("add Item");
@@ -145,7 +146,7 @@ public class itemController implements Initializable {
     public void returnToHomePage(ActionEvent actionEvent) {
         //return to home page
         ((Node)(actionEvent.getSource())).getScene().getWindow().hide();
-        loadIndex();
+//        loadIndex();
     }
 
     void loadIndex() {

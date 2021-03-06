@@ -214,14 +214,14 @@ public class UserListController implements Initializable {
     @FXML
     private void returnToIndex(ActionEvent event) {
         closeStage();
-        loadIndex();
+//        loadIndex();
     }
 
     void loadIndex() {
         try {
             Parent parent = FXMLLoader.load(getClass().getResource("../../index/index.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle("index");
+            stage.setTitle("Index");
             stage.setScene(new Scene(parent));
             stage.show();
         } catch (IOException ex) {
