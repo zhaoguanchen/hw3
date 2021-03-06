@@ -1,4 +1,4 @@
-package hw3.data.model;
+package hw3.model;
 
 /**
  * @Description: User Entity

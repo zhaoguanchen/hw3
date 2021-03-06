@@ -1,6 +1,6 @@
 package hw3.service.user.add;
 
-import hw3.data.model.User;
+import hw3.model.User;
 import hw3.database.DataHelper;
 import hw3.database.DatabaseHandler;
 import hw3.util.AlertMaker;

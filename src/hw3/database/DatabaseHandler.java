@@ -99,6 +99,17 @@ public final class DatabaseHandler {
         }
     }
 
+     public void execUpdate(String query) {
+         System.out.println("execQuery:dataHandler:" + query);
+         try {
+             stmt = conn.createStatement();
+             stmt.executeUpdate(query);
+         } catch (SQLException exception) {
+             exception.printStackTrace();
+         } finally {
+         }
+     }
+
     public Connection getConnection() {
         return conn;
     }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hw3.service.inventory.InventoryController">
+   <children>
+      <TableView fx:id="inventoryTableView" editable="true" prefHeight="356.0" prefWidth="580.0" AnchorPane.bottomAnchor="104.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
+        <columns>
+          <TableColumn fx:id="inventoryID" minWidth="80.0" prefWidth="100.0" text="InventoryID" />
+          <TableColumn fx:id="entityID" minWidth="80.0" prefWidth="100.0" text="EntityID" />
+            <TableColumn fx:id="entityName" minWidth="100.0" prefWidth="150.0" text="EntityName" />
+            <TableColumn fx:id="unit" minWidth="40.0" prefWidth="50.0" text="Unit" />
+            <TableColumn fx:id="manufacturer" minWidth="80.0" prefWidth="100.0" text="Manufacturer" />
+            <TableColumn fx:id="expiry" minWidth="80.0" prefWidth="100.0" text="Expiry" />
+            <TableColumn fx:id="quantity" minWidth="60.0" text="Quantity" />
+            <TableColumn fx:id="ownerID" minWidth="80.0" prefWidth="100.0" text="OwnerID" />
+            <TableColumn fx:id="owner" minWidth="100.0" prefWidth="150.0" text="Owner" />
+            <TableColumn fx:id="phone" minWidth="80.0" prefWidth="100.0" text="Phone" />
+            <TableColumn fx:id="email" minWidth="100.0" prefWidth="150.0" text="Email" />
+        </columns>
+      </TableView>
+      <HBox prefHeight="0.0" prefWidth="450.0" spacing="20.0" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Button minWidth="120.0" mnemonicParsing="false" onAction="#listAll" prefWidth="150.0" text="List All" textAlignment="CENTER" />
+            <Button layoutX="65.0" layoutY="10.0" minWidth="120.0" mnemonicParsing="false" onAction="#deleteSelected" prefWidth="150.0" text="Delete" />
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox layoutX="162.0" layoutY="481.0" prefHeight="27.0" prefWidth="580.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <Region prefHeight="200.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="addInventoryID" editable="false" minWidth="50.0" prefWidth="150.0" promptText="InventoryID" />
+            <TextField fx:id="addEntityID" layoutX="10.0" layoutY="10.0" minWidth="50.0" prefWidth="150.0" promptText="EntityID" />
+            <TextField fx:id="addExpiry" layoutX="10.0" layoutY="10.0" minWidth="50.0" prefWidth="150.0" promptText="Expiry" />
+            <TextField fx:id="addQuantity" layoutX="10.0" layoutY="10.0" minWidth="50.0" prefWidth="150.0" promptText="Quantity" />
+            <TextField fx:id="addOwnerID" layoutX="10.0" layoutY="10.0" minWidth="50.0" prefWidth="150.0" promptText="OwnerID" />
+            <Button minWidth="50.0" mnemonicParsing="false" onAction="#add" prefWidth="100.0" text="Add" />
+            <Region prefHeight="200.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

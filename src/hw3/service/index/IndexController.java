@@ -27,4 +27,11 @@ public class IndexController implements Initializable {
     private void add() {
 
     }
+
+
+//
+//    Parent root = FXMLLoader.load(getClass().getResource("InventoryScene.fxml"));
+//        primaryStage.setTitle("Inventory");
+//        primaryStage.setScene(new Scene(root, 1200, 600));
+//        primaryStage.show();
 }

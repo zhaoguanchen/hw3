@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hw3.service.item.list.itemController">
+
+    <children>
+      <TableView fx:id="table" layoutX="29.0" layoutY="88.0" prefHeight="276.0" prefWidth="542.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="88.0">
+        <columns>
+          <TableColumn fx:id="col_item_no" prefWidth="83.0" style="-fx-alignment: CENTER;" text="Item_No" />
+          <TableColumn fx:id="col_name" prefWidth="114.0" style="-fx-alignment: CENTER;" text="Name" />
+          <TableColumn fx:id="col_unit" prefWidth="171.0" style="-fx-alignment: CENTER;" text="Unit" />
+          <TableColumn fx:id="col_manufacturer" prefWidth="211.0" style="-fx-alignment: CENTER;" text="Manufacturer" />
+        </columns>
+        <contextMenu>
+           <ContextMenu>
+             <items>
+              <MenuItem mnemonicParsing="false" onAction="#delete" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#edit" text="Edit" />
+             </items>
+           </ContextMenu>
+        </contextMenu>
+       </TableView>
+     <Button fx:id="refresh" layoutX="24.0" layoutY="28.0" mnemonicParsing="false" onAction="#refresh" text="refresh" />
+     <Button fx:id="add" layoutX="102.0" layoutY="28.0" mnemonicParsing="false" onAction="#add" text="add item" />
+     <Button fx:id="returnToIndex" layoutX="499.0" layoutY="28.0" mnemonicParsing="false" onAction="#returnToHomePage" text="Home" />
+   </children>
+</AnchorPane>

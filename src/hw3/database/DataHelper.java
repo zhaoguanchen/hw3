@@ -1,6 +1,6 @@
 package hw3.database;
 
-import hw3.data.model.User;
+import hw3.model.User;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
