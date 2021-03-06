@@ -23,11 +23,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
- /**
-  * @Description: Login Service
-  * @Author: Guanchen Zhao
-  * @Date: 2021/2/27  
-  */
+/**
+ * @Description: Login Service
+ * @Author: Guanchen Zhao
+ * @Date: 2021/2/27
+ */
 public class LoginController implements Initializable {
 
     private final static Logger LOGGER = LogManager.getLogger(LoginController.class.getName());
@@ -43,7 +43,6 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         databaseHandler = DatabaseHandler.getInstance();
     }
-
 
 
     @FXML
@@ -95,10 +94,9 @@ public class LoginController implements Initializable {
 
     void loadMain() {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("../user/list/user_list.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("../index/index.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);
-            // TODO: 2021/2/27  name
-            stage.setTitle("user");
+            stage.setTitle("Index");
             stage.setScene(new Scene(parent));
             stage.show();
         } catch (IOException ex) {

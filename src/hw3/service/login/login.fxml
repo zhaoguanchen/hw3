@@ -5,15 +5,19 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane fx:id="loginPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hw3.service.login.LoginController">
    <children>
-      <Button id="login" layoutX="163.0" layoutY="234.0" mnemonicParsing="false" onAction="#login" text="login" />
-      <Label layoutX="104.0" layoutY="78.0" text="Account" />
-      <Label layoutX="104.0" layoutY="143.0" text="password" />
-      <TextField id="account" fx:id="account" layoutX="183.0" layoutY="73.0" promptText="please input your accout" />
-      <Label layoutX="81.0" layoutY="14.0" text="welcome Group1, this is login service" />
-      <Button layoutX="321.0" layoutY="234.0" mnemonicParsing="false" onAction="#cancel" text="cancel" />
-      <PasswordField fx:id="password" layoutX="183.0" layoutY="138.0" promptText="please input your password" />
+      <Button id="login" layoutX="204.0" layoutY="277.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="61.0" text="login" />
+      <Label contentDisplay="CENTER" layoutX="173.0" layoutY="165.0" prefHeight="17.0" prefWidth="69.0" text="ACCOUNT" textAlignment="CENTER" />
+      <Label layoutX="169.0" layoutY="205.0" text="PASSWORD" />
+      <TextField id="account" fx:id="account" alignment="CENTER" layoutX="263.0" layoutY="200.0" promptText="please input your account" />
+      <Label layoutX="76.0" layoutY="57.0" text="Welcome to the lab resource database system, please log in.">
+         <font>
+            <Font name="System Font" size="18.0" />
+         </font></Label>
+      <Button layoutX="324.0" layoutY="277.0" mnemonicParsing="false" onAction="#cancel" prefHeight="27.0" prefWidth="61.0" text="cancel" />
+      <PasswordField fx:id="password" layoutX="263.0" layoutY="160.0" promptText="please input your password" />
    </children>
 </Pane>
