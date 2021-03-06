@@ -76,7 +76,6 @@ public class UserAddController implements Initializable {
 
     void loadList() {
         try {
-
             Parent parent = FXMLLoader.load(getClass().getResource("../list/user_list.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("user list");

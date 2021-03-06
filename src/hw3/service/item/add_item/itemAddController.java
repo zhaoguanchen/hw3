@@ -1,6 +1,10 @@
 package hw3.service.item.add_item;
 
+import hw3.database.DataHelper;
 import hw3.database.DatabaseHandler;
+import hw3.model.Item;
+import hw3.model.User;
+import hw3.util.AlertMaker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -39,6 +44,12 @@ public class itemAddController implements Initializable {
     @FXML
     private Button back;
 
+
+    private Boolean isInEditMode = false;
+
+
+    private Integer itemId;
+
     @FXML
     private void backButtonPressed(ActionEvent event) {
         ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -57,6 +68,16 @@ public class itemAddController implements Initializable {
             alert.setContentText("Please enter data in all fields.");
             alert.showAndWait();
         }
+
+        if (isInEditMode) {
+            Item item = new Item();
+            item.setItemId(itemId);
+            item.setName(name);
+            item.setManufacturer(manufacturer);
+            item.setUnit(unit);
+            update(item);
+            return;
+        }
         DatabaseHandler handler = DatabaseHandler.getInstance();
         //String update = "INSERT INTO test (name, unit, manufacturer) VALUES (" + name +", " + unit + ", " + unit + ");";
         String update = String.format(
@@ -65,6 +86,33 @@ public class itemAddController implements Initializable {
                 unit,
                 manufacturer);
         handler.execUpdate(update);
+        AlertMaker.showSimpleAlert("Success", "item data added.");
     }
+
+    private void update(Item item) {
+        boolean result = DataHelper.updateItem(item);
+        if (result) {
+            AlertMaker.showSimpleAlert("Success", "item data updated.");
+        } else {
+            AlertMaker.showSimpleAlert("Failed", "Cant update item.");
+        }
+
+    }
+
+    public void infalteUI(Item item) {
+        txtName.setText(item.getName());
+        txtUnit.setText(item.getUnit());
+        txtManufacturer.setText(item.getManufacturer());
+        itemId = item.getItemId();
+        isInEditMode = Boolean.TRUE;
+    }
+
+    private void clearEntries() {
+        txtName.clear();
+        txtUnit.clear();
+        txtManufacturer.clear();
+    }
+
+
 
 }

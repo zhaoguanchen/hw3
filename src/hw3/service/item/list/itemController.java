@@ -2,6 +2,7 @@ package hw3.service.item.list;
 
 import hw3.database.DatabaseHandler;
 import hw3.model.Item;
+import hw3.service.item.add_item.itemAddController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,7 +24,6 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
@@ -65,7 +65,7 @@ public class itemController implements Initializable {
                 String name = result.getString(2);
                 String unit = result.getString(3);
                 String manufacturer = result.getString(4);
-                observableList.add(new Item(itemId,name,unit,manufacturer));
+                observableList.add(new Item(itemId, name, unit, manufacturer));
             }
         } catch (SQLException exception) {
             // logger.log(Level.SEVERE, "Exception occur", exception);
@@ -101,15 +101,19 @@ public class itemController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Alert Message");
             alert.setHeaderText(null);
-            alert.setContentText("No user selected, Please select a user for edit.");
+            alert.setContentText("No Item selected, Please select a Item for edit.");
             alert.showAndWait();
+            return;
         }
+
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("../src/hw3/service/item/add_item/item_add.fxml")));
-            Scene scene = new Scene(root);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../add_item/item_add.fxml"));
+            Parent parent = loader.load();
+            itemAddController controller = loader.getController();
+            controller.infalteUI(selectedItem);
             Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle("edit Item");
-            stage.setScene(scene);
+            stage.setTitle("Edit Item");
+            stage.setScene(new Scene(parent));
             stage.show();
             stage.setOnHiding((e) -> {
                 refresh(new ActionEvent());
@@ -119,18 +123,20 @@ public class itemController implements Initializable {
             exception.printStackTrace();
         }
     }
+
     @FXML
     public void refresh(ActionEvent actionEvent) {
         loadData();
     }
+
     @FXML
     public void add() {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("../src/hw3/service/item/add_item/item_add.fxml")));
-            Scene scene = new Scene(root);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../add_item/item_add.fxml"));
+            Parent parent = loader.load();
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("add Item");
-            stage.setScene(scene);
+            stage.setScene(new Scene(parent));
             stage.show();
             stage.setOnHiding((e) -> {
                 refresh(new ActionEvent());
@@ -145,7 +151,7 @@ public class itemController implements Initializable {
     @FXML
     public void returnToHomePage(ActionEvent actionEvent) {
         //return to home page
-        ((Node)(actionEvent.getSource())).getScene().getWindow().hide();
+        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
 //        loadIndex();
     }
 

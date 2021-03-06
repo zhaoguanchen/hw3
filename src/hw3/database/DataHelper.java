@@ -1,5 +1,6 @@
 package hw3.database;
 
+import hw3.model.Item;
 import hw3.model.User;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -120,6 +121,23 @@ public class DataHelper {
             statement.setString(6, user.getPI_name());
             statement.setString(7, user.getPassword());
             statement.setInt(8, user.getUserId());
+            return statement.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            LOGGER.log(Level.ERROR, "{}", ex);
+        }
+        return false;
+    }
+
+
+    public static boolean updateItem(Item item) {
+        try {
+            String update = "UPDATE Items SET name=?,unit =?, manufacturer=? WHERE itemId=?";
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    update);
+            statement.setString(1, item.getName());
+            statement.setString(2, item.getUnit());
+            statement.setString(3, item.getManufacturer());
+            statement.setInt(4, item.getItemId());
             return statement.executeUpdate() > 0;
         } catch (SQLException ex) {
             LOGGER.log(Level.ERROR, "{}", ex);
